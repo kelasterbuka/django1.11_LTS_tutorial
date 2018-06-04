@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{judul}}</title>
+</head>
+<body>
+	{# <img style="width:100%" src="{% static "img/banner_home.png" %}" alt=""> #}
+	<img style="width:100%" src="{% static banner %}" alt="">
+	<ul>
+		<li><a href="/">home</a></li>
+		<li><a href="/blog">blog</a></li>
+		<li><a href="/about">about</a></li>
+	</ul>
+
+	<h1>{{subjudul}}</h1>
+
+</body>
+</html>

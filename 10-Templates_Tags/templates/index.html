@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{subjudul}} | Kelas Terbuka</title>
+</head>
+<body>
+	<h1>{{subjudul}} di {{judul}}</h1>
+
+	<ul>
+		{# template Tags #}
+
+		{% for link,name in nav%}
+			<li>
+				<a href=" {{link}} " title="">{{name}}</a>
+			</li>
+		{% endfor %}
+
+	</ul>
+
+
+
+
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+</body>
+</html>
