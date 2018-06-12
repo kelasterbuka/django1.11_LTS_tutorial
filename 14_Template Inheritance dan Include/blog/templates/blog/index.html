@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block app_css %}
+	<link rel="stylesheet" type="text/css" href="{% static "blog/css/styles.css" %}">
+{% endblock app_css %}
+
+{% block header %}
+
+<h1 class="text-left" style="margin-top:100px">{{heading}}</h1>
+<p class="lead text-left">{{subheading}}</p>
+
+{% endblock header %}
+
+{% block content-1 %}
+	<div class="row bg-white" style="height:400px">
+		<h1>content blog</h1>
+	</div>
+{% endblock content-1 %}
+
+{% block content-2 %}
+	<div class="row bg-info" style="height:400px">
+		<h1>content blog 2</h1>
+	</div>
+{% endblock content-2 %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

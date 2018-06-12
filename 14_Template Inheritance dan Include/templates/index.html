@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block header %}
+
+<h1 class="display-4">{{heading}}</h1>
+<p class="lead">{{subheading}}</p>
+
+{% endblock header %}
+
+{% block content-1 %}
+
+<div class="row" style="height:400px">
+	<h1>content1</h1>
+</div>
+
+{% endblock content-1 %}
+
+{% block content-2 %}
+
+<div class="row" style="height:400px">
+	<h1>overload content2</h1>
+</div>
+
+{% endblock content-2 %}
