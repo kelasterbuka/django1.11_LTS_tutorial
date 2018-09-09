@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{Title}}</title>
+</head>
+<body>
+	<h1>{{Heading}}</h1>
+	<ul>
+		<li><a href="/blog/" >blog</a></li>
+		<li><a href="/blog/berita/" >berita</a></li>
+		<li><a href="/blog/jurnal/" >jurnal</a></li>
+		<li><a href="/blog/gosip/" >gosip</a></li>
+	</ul>
+	{% for post in Posts %}
+		<h2>{{post.judul}}</h2>
+		<h3>{{post.waktuPosting}}</h3>
+		<p>{{post.body}}</p>
+		<p>category: {{post.category}}</p>
+		<br>
+	{% endfor %}
+</body>
+</html>

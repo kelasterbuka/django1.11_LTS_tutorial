@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{Title}}</title>
+</head>
+<body>
+	<h1>{{Title}}</h1>
+	<h2>{{Heading}}</h2>
+
+	{% for post in Posts %}
+		<h3>{{post.judul}}</h3>
+		<p>{{post.body}}</p>
+	{% endfor %}
+	
+</body>
+</html>
