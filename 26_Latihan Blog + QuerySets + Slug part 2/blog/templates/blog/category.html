@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block Title %}
+	{{Judul}}
+{% endblock Title %}
+
+
+{% block pageTitle %}
+	{{Judul}}
+{% endblock pageTitle %}
+
+{% block contents %}
+	{{Content}}
+	<ul class="nav">
+
+		<li class="nav-item">
+			<a class = "nav-link" href="/blog" title="">
+				All-post	
+			</a>
+			
+		</li>
+
+	{% for dataCategory in Categories %}
+		<li class="nav-item">
+			<a class = "nav-link" href="/blog/category/{{dataCategory.category}}" title="">
+				{{dataCategory.category}}	
+			</a>
+			
+		</li>
+	{% endfor %}
+	</ul>
+
+	{% for post in Posts %}
+		<a href="/blog/post/{{post.slug}}" title="">
+			<h1>{{post.judul}}</h1>
+		</a>
+		<p>{{post.publish}}</p>
+		<p>{{post.body|truncatechars:200}}</p>
+	{% endfor %}
+	
+
+{% endblock contents %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
