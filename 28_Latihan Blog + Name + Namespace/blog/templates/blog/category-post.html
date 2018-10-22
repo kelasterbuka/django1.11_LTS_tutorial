@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block Title %}
+	Blog - Kelas Terbuka
+{% endblock Title %}
+
+{% block pageTitle %}
+	Blog Kelas Terbuka
+{% endblock pageTitle %}
+
+{% block pageSubTitle %}
+	Selamat membaca
+{% endblock pageSubTitle %}
+
+{% block contents %}
+	<p>Kategori: 
+		<ul class="nav">
+			<li class="nav-item">
+				<a class="nav-link" href="/blog">
+					all-post
+				</a>
+			</li>
+
+		{% for category in Categories %}
+			<li class="nav-item">
+				
+				<a class="nav-link" href="../{{category.category}}">{{category.category}}</a>
+
+			</li>
+		{% endfor %}
+		</ul>
+	</p>
+
+	<p>Semua post di kategori : {{Content}}</p>
+
+	{% for post in Posts %}
+		<a href="/blog/post/{{post.slug}}"><h1>{{post.judul}}</h1></a>
+		<p>{{post.publish}}</p>
+		<p>{{post.body | truncatechars:200}}</p>
+	{% endfor %}
+{% endblock contents %}
