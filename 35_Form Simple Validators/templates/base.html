@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		{% block page_title %}
+			
+		{% endblock page_title %}
+	</title>
+</head>
+<body>
+	<ul>
+		<li><a href="{% url 'index' %}">Home</a></li>
+		<li><a href="{% url 'blog:index' %}">Blog</a></li>
+		<ul>
+			<li><a href="{% url 'blog:create' %}">Create</a></li>	
+		</ul>
+	</ul>
+
+
+	{% block contents %}
+		
+	{% endblock contents %}
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+	{{heading}}
+{% endblock title %}
+
+
+{% block content %}	
+	<h1>{{heading}}</h1>
+	<form method="POST">
+		{% csrf_token %}
+		<div class="form-group">
+			{{contact_form.nama_lengkap.label_tag}}
+			{{contact_form.nama_lengkap}}
+		</div>
+
+		<div class="form-group">
+			{{contact_form.jenis_kelamin.label_tag}}
+			{% for jenis_kelamin in contact_form.jenis_kelamin %}
+				<div class="form-group-input">
+					{{jenis_kelamin.tag}}
+					<label for="{{jenis_kelamin.id_for_label}}">
+						{{jenis_kelamin.choice_label}}
+					</label>
+				</div>
+			{% endfor %}
+		</div>
+
+		
+		<div class="form-group">
+			{{contact_form.tanggal_lahir.label_tag}}
+			<div class="form-row">
+				{{contact_form.tanggal_lahir}}
+			</div>
+			
+		</div>
+		
+		<div class="form-group">
+			{{contact_form.email.label_tag}}
+			{{contact_form.email}}
+		</div>
+
+		<div class="form-group">
+			{{contact_form.alamat.label_tag}}
+			{{contact_form.alamat}}
+		</div>
+
+		<div class="form-group">
+			{{contact_form.agree.label_tag}}
+			{{contact_form.agree}}
+		</div>
+
+		<button class="btn-primary" type="submit">Kirim</button>
+		
+	</form>
+{% endblock content %}

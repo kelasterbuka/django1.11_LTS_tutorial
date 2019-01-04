@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{heading}}</title>
+</head>
+<body>
+	<h1>{{heading}}</h1>
+    <ul>
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'contact:index' %}">Contact</a></li>
+    </ul>
+
+	<form method="POST">
+		{% csrf_token %}
+		<table>
+			{{contact_form.as_table}}
+		</table>
+		<br>
+		<button type="submit">Kirim</button>
+	</form>
+</body>
+</html>
