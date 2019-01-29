@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}
+	{{page_title}}
+{% endblock title %}
+
+
+{% block contents %}
+	<h1>{{page_title}}</h1>
+	
+	<div class="dropdown">
+	  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	    Content
+	  </button>
+	  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+	    <a class="dropdown-item" href="{% url 'sosmed:list' %}">Semua content</a>
+	    {% for content in list_content %}
+	    	<a class = "dropdown-item" 
+	    	   href="{% url 'sosmed:list' %}?content_filter={{content}}">
+	    		{{content}}
+	    	</a>
+	    {% endfor %}
+	  </div>
+	</div>
+
+	<table class="table mt-2">
+	  <thead>
+	    <tr>
+	      <th scope="col">#</th>
+	      <th scope="col">First</th>
+	      <th scope="col">Last</th>
+	      <th scope="col">User Name</th>
+	      <th scope="col">content</th>
+	      <th scope="col">Hapus</th>
+	      <th scope="col">Ubah</th>
+	    </tr>
+	  </thead>
+	  <tbody>   
+	    {% for akun in semua_akun %}
+	    	<tr>
+		      <th scope="row">{{forloop.counter}}</th>
+		      <td>{{akun.nama_depan}}</td>
+		      <td>{{akun.nama_belakang}}</td>
+		      <td>{{akun.username}}</td>
+		      <td>{{akun.content}}</td>
+		      <td><a class="btn btn-danger" href="{% url 'sosmed:delete' akun.id %}" title="">Delete</a>
+		      <td><a class="btn btn-warning" href="{% url 'sosmed:update' akun.id %}" title="">Update</a>
+		    </tr>
+	    {% endfor %}
+	  </tbody>
+	</table>
+	<a class="btn btn-primary" href="{% url 'sosmed:create' %}">Tambah</a>
+{% endblock contents %}
