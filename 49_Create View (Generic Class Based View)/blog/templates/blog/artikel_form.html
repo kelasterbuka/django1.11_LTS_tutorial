@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Create</title>
+</head>
+<body>
+	<h1>Create view tipe 2</h1>
+	<h1>{{page_title}}</h1>
+
+	<form method='POST'>
+		{% csrf_token %}
+		<table>
+			{{form.as_table}}
+		</table>
+		<button type="Submit">Kirim</button>
+	</form>
+
+</body>
+</html>
