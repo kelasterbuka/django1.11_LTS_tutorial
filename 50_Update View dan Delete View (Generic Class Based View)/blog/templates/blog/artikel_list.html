@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>{{page_title}}</h1>
+	<a href="{% url 'blog:create' %}" title="">Tambah Artikel</a>
+	<ol>
+		{% for artikel in object_list %}
+			<li>
+				<a href="{% url 'blog:detail' artikel.slug %}" title="">{{artikel.judul}}</a> - oleh: {{artikel.penulis}} 
+				<a href="{% url 'blog:delete' artikel.pk%}" title="">hapus</a></li>		
+		{% endfor %}
+	</ol>
+	
+	{% if is_paginated %}
+		{% if page_obj.has_previous %}
+			<a href="{% url 'blog:list' penulis page_obj.previous_page_number %}" title="">&laquo</a>
+		{% else %}
+			<span>&laquo</span>
+		{% endif %}
+		
+
+		{% for i in paginator.page_range %}
+			<a href="{% url 'blog:list' penulis i %}" title="">
+				{{i}}
+			</a>
+		{% endfor %}
+
+
+		{% if page_obj.has_next %}
+			<a href="{% url 'blog:list' penulis page_obj.next_page_number %}" title="">&raquo</a>
+		{% else %}
+			<span>&raquo</span>
+		{% endif %}
+	{% endif %}
+
+	{# {% if is_paginated %} #}
+			{# <li>object_list = {{object_list}}</li> #}
+			{# <li>is_paginated = {{is_paginated}}</li> #}
+			{# <li>page_obj = {{page_obj}}</li> #}
+			{# <li>page_obj.number = {{page_number}}</li> #}
+			{# <li>page_obj.has_next = {{page_obj.has_next}}</li> #}
+			{# <li>page_obj.has_previous = {{page_obj.has_previous}}</li> #}
+			{# <li>page_obj.has_other_pages = {{page_obj.has_other_pages}}</li> #}
+			{# <li>page_obj.next_page_number = {{page_obj.next_page_number}}</li> #}
+			{# <li>page_obj.previous_page_number = {{page_obj.previous_page_number}}</li> #}
+			{# <li>page_obj.start_index = {{page_obj.start_index}}</li> #}
+			{# <li>page_obj.end_index = {{page_obj.end_index}}</li> #}
+			{# <li>paginator.count = {{paginator.count}}</li> #}
+			{# <li>paginator.num_pages = {{paginator.num_pages}}</li> #}
+			{# <li>paginator.page_range = {{paginator.page_range}}</li> #}
+		{# {% endif %} #}
+</body>
+</html>

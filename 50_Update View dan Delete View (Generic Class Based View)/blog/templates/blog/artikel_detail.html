@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{page_title}}</title>
+</head>
+<body>
+	<h1>{{page_title}}</h1>
+
+	<h2>{{object.judul}}</h2>
+	<span>Oleh: {{object.penulis}}, Ditulis : {{object.publish}}</span>
+	<p>{{object.isi}}</p>
+	<br>
+	<a href="{% url 'blog:list' 'all' %}" title="">kembali</a>
+	<a href="{% url 'blog:update1' object.pk %}" title="">update1</a>
+	<a href="{% url 'blog:update2' object.pk %}" title="">update2</a>
+	<br>
+	<h3>Artikel lainnya:</h3>
+	<ol>
+		{% for artikel in artikel_lain %}
+			<li>
+				<a href="{% url 'blog:detail' artikel.slug %}" title="">{{artikel.judul}}</a> - oleh: {{artikel.penulis}}</li>		
+		{% endfor %}
+	</ol>
+</body>
+</html>
