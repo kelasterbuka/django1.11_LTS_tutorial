@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+    Manage Artikel
+{% endblock page_title %}
+
+{% block contents %}
+    <h1>Manage Artikel</h1>
+    <a class="btn btn-primary btn-block" href="{% url 'artikel:create' %}">Tambah Artikel</a>
+    <table class="table mt-4">
+	  <thead class="thead-dark">
+	    <tr>
+	      <th scope="col">#</th>
+	      <th scope="col">Judul</th>
+	      <th scope="col">Kategori</th>
+	      <th scope="col">Published</th>
+	      <th scope="col">Action</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    {% for artikel in artikel_list %}
+	    <tr>
+	      <th scope="row">{{forloop.counter}}</th>
+	      <td>{{artikel.judul}}</td>
+	      <td>{{artikel.kategori}}</td>
+	      <td>{{artikel.published}}</td>
+	      <td>
+			<a class="btn btn-warning" href="{% url 'artikel:update' artikel.id %}">Edit</a>
+	      	<a class="btn btn-danger" href="{% url 'artikel:delete' artikel.id %}">Delete</a>
+	      </td>
+	    </tr>
+	    {% endfor %}
+	  </tbody>
+	</table>
+
+{% endblock contents %}

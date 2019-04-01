@@ -1,0 +1,28 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+	  <a class="navbar-brand" href="{% url 'home' %}">BLOG</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+	    <ul class="navbar-nav">
+	      <li class="nav-item">
+	        <a class="nav-link" href="{% url 'home' %}">Home</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="{% url 'artikel:list' 1 %}">Artikel</a>
+	      </li>
+	    </ul>
+	    <div class="nav-item dropdown ml-auto">
+	        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	          User
+	        </a>
+	        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	          <a class="dropdown-item" href="{% url 'artikel:create' %}">Tambah artikel</a>
+	          <a class="dropdown-item" href="{% url 'artikel:manage' %}">Manage artikel</a>
+	          
+	        </div>
+	    </div>
+	  </div>
+  </div>
+</nav>

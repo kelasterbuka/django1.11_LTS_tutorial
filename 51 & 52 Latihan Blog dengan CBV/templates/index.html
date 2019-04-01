@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+	Home
+{% endblock page_title %}
+
+
+{% block contents %}
+	<h1>Home</h1>
+	<div class="row">
+		{% for artikel in latest_artikel_list %}
+			<div class="col-sm-4">
+				<div class="card" >
+				  <div class="card-body">
+				    <h5 class="card-title"><a href="{% url 'artikel:category' artikel.kategori 1%}">{{artikel.kategori}}</a></h5>
+				    <h6 class="card-subtitle mb-2 text-dark">{{artikel.judul}}</h6>
+				    <h6 class="card-subtitle mb-2 text-muted">{{artikel.published|date}}</h6>
+				    <p class="card-text">{{artikel.isi|truncatewords:10}}</p>
+				    <a href="{% url 'artikel:detail' artikel.slug%}" class="card-link">Selengkapnya</a>
+				  </div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+	
+
+	
+
+	
+{% endblock contents %}

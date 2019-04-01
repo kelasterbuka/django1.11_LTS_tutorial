@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+    Update
+{% endblock page_title %}
+
+{% block contents %}
+	<h1>Update Artikel</h1>
+
+	<form method='POST'>
+		{% csrf_token %}
+
+		<div class="form-group">
+		    <label for="{{form.judul.id_for_label}}">{{form.judul.label}}:</label>
+		    <input type="text" class="form-control" name="{{form.judul.name}}" maxlength="{{form.judul.max}}" required id="{{form.judul.id_for_label}}" value="{{form.judul.value}}">    
+		</div>
+
+		<div class="form-group">
+			<label for="{{form.isi.id_for_label}}">{{form.isi.label}}:</label>
+			<textarea class="form-control" name="{{form.isi.name}}" rows="10" required id="{{form.isi.id_for_label}}">{{form.isi.value}}</textarea>
+		</div>
+
+		<div class="form-group">
+		    <label for="{{form.kategori.id_for_label}}">{{form.kategori.label}}:</label>
+		    <input type="text" class="form-control" name="{{form.kategori.name}}" maxlength="{{form.kategori.max}}" required id="{{form.kategori.id_for_label}}" value="{{form.kategori.value}}">    
+		</div>
+
+		<button type="submit" class="btn btn-warning">Update</button>
+		<a href="{% url 'artikel:manage' %}" class="btn btn-danger">Tidak</a>
+	</form>
+{% endblock contents %}

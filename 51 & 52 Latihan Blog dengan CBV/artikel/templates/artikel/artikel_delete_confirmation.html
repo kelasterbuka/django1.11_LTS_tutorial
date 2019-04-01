@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+	Delete artikel
+{% endblock page_title %}
+
+{% block contents %}
+	<h1>Delete Artikel Confirmation</h1>
+	<p>Apakah benar anda ingin menghapus artikel berikut:</p>
+	<h3>{{artikel.judul}}</h3>
+	<p>{{artikel.published}}</p>
+	<form method='POST'>
+		{% csrf_token %}
+		<button type="submit" class="btn btn-outline-primary">Ya</button>
+		<a class="btn btn-outline-danger" href="{% url 'artikel:manage' %}">Tidak</a>
+	</form>
+{% endblock contents %}

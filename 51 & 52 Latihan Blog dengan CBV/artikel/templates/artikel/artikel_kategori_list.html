@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+	Artikel
+{% endblock page_title %}
+
+
+{% block contents %}
+
+
+<div class="row">
+	<div class="col-md-8">
+		<h2 class="border-bottom">Kategori: {{kategori}}</h2>
+		{% if is_paginated %}
+
+			<nav aria-label="artikelPage">
+			  <ul class="pagination">
+			    
+			    {% if page_obj.has_previous %}
+			    	<li class="page-item">
+				      <a class="page-link" href="{% url 'artikel:category' kategori page_obj.previous_page_number%}">Previous</a>
+				    </li>
+				{% else %}
+					<li class="page-item disabled">
+				      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+				    </li>
+			    {% endif %}
+			    
+			    {% for page in paginator.page_range %}
+			    	{% if page is page_obj.number %}
+			    	<li class="page-item active" aria-current="page">
+			    		<span class="page-link" href="#">{{page}}<span class="sr-only">(current)</span></span>
+			    	</li>
+			    	{% else %}
+			    	<li class="page-item">
+			    		<a class="page-link" href="{% url 'artikel:category' kategori page %}">{{page}}</a>
+			    	</li>
+			    	{% endif %}
+			    {% endfor %}
+			    
+			    {% if page_obj.has_next %}
+			    	<li class="page-item">
+				      <a class="page-link" href="{% url 'artikel:category' kategori page_obj.next_page_number%}">Next</a>
+				    </li>
+				{% else %}
+					<li class="page-item disabled">
+				      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Next</a>
+				    </li>
+			    {% endif %}
+
+			  </ul>
+			</nav>
+
+			{% endif %}
+
+			{% for artikel in artikel_list %}
+				<h3><a class="text-dark" href="{% url 'artikel:detail' artikel.slug %}">{{artikel.judul}}</a></h3>
+				<p>{{artikel.published}}</p>
+				<p class="border-bottom">{{artikel.isi|truncatewords:50}} <a href="{% url 'artikel:detail' artikel.slug %}">Selengkapnya</a></p>
+			{% endfor %}
+	</div>
+	<div class="col-sm">
+		<h3>Kategori lainnya</h3>
+		<ul class="list-group list-group-flush">
+			<li class="list-group-item"><a href="{% url 'artikel:list' 1 %}"><b>Semua kategori</b></a></li>
+		  	{% for kategori in kategori_list %}
+		  		<li class="list-group-item"><a href="{% url 'artikel:category' kategori 1%}">{{kategori}}</a></li>
+		  	{% endfor %}
+		</ul>
+	</div>
+
+</div>
+
+
+{% endblock contents %}
