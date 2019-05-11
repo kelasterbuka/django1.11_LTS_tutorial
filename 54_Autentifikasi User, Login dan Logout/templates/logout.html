@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{page_title}}</title>
+</head>
+<body>
+	<h1>{{page_title}}</h1>
+
+	<p>Apakah anda yakin akan logout?</p>
+
+	<form method="POST">
+		{% csrf_token %}
+		<input type="submit" name="logout">
+	</form>
+</body>
+</html>
